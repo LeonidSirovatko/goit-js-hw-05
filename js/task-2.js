@@ -1,17 +1,19 @@
-function formatMessage(message, maxLength) {
-  // 1. Проверяем, укладывается ли длина сообщения в лимит
-  if (message.length <= maxLength) {
-    return message;
-  } else {
-    // 2. Если превышает, обрезаем до maxLength символов и добавляем "..."
-    return message.slice(0, maxLength) + "...";
-  }
-}
+// Задача 2. Користувачі з другом
+const getUsersWithFriend = (users, friendName) => {
+  return users.filter(user => user.friends.includes(friendName));
+};
 
-// Код для проверки работы функции
-console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
+// Код для перевірки ментором
+const allUsers = [
+  { name: "Moore Hensley", friends: ["Sharron Pace"] },
+  { name: "Sharlene Bush", friends: ["Briana Decker", "Sharron Pace"] },
+  { name: "Ross Vazquez", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"] },
+  { name: "Elma Head", friends: ["Goldie Gentry", "Aisha Tran"] },
+  { name: "Carey Barr", friends: ["Jordan Sampson", "Eddie Strong"] },
+  { name: "Blackburn Dotson", friends: ["Jacklyn Lucas", "Linda Chapman"] },
+  { name: "Sheree Anthony", friends: ["Goldie Gentry", "Briana Decker"] }
+];
+
+console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
+console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // Очікуваний результат: []

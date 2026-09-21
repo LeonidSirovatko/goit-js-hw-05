@@ -1,19 +1,18 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  // 1. Вычисляем общую сумму заказа
-  const totalPrice = quantity * pricePerDroid;
+// Задача 1. Імена користувачів
+const getUserNames = (users) => {
+  return users.map(user => user.name);
+};
 
-  // 2. Проверяем, хватает ли у клиента средств
-  if (totalPrice > customerCredits) {
-    return "Insufficient funds!";
-  } else {
-    // 3. Возвращаем строку с успешным заказом
-    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-  }
-}
-
-// Код для проверки работы функции 
-console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
-console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
-console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
+// Код для перевірки ментором
+console.log(
+  getUserNames([
+    { name: "Moore Hensley", email: "moorehensley@indexia.com", balance: 2811 },
+    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", balance: 3821 },
+    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", balance: 3793 },
+    { name: "Elma Head", email: "elmahead@omatom.com", balance: 2278 },
+    { name: "Carey Barr", email: "careybarr@nurali.com", balance: 3951 },
+    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", balance: 1498 },
+    { name: "Sheree Anthony", email: "shereeanthony@kog.com", balance: 2764 }
+  ])
+); 
+// Очікуваний результат: ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
