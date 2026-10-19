@@ -1,0 +1,22 @@
+/* Стилі для сітки галереї */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Розрахунок ширини карток для трьох елементів у рядку */
+.gallery-item {
+  flex-basis: calc((100% - 48px) / 3);
+}
+
+/* Стилі для адаптивності самих зображень */
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}

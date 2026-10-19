@@ -25,17 +25,19 @@ const images = [
   },
 ];
 
-// Знаходимо галерею в DOM
-const gallery = document.querySelector('.gallery');
+// 1. Знаходимо в DOM список ul.gallery
+const galleryList = document.querySelector(".gallery");
 
-// Створюємо розмітку списку з класами для CSS стилізації
+// 2. Створюємо розмітку карток галереї за допомогою шаблонних рядків
 const galleryMarkup = images
-  .map(({ url, alt }) => `
+  .map(
+    ({ url, alt }) => `
     <li class="gallery-item">
       <img class="gallery-image" src="${url}" alt="${alt}">
     </li>
-  `)
-  .join('');
+  `
+  )
+  .join("");
 
-// Додаємо всю розмітку в DOM за одну операцію
-gallery.insertAdjacentHTML('beforeend', galleryMarkup);
+// 3. Додаємо всі шість елементів до списку за ОДНУ операцію додавання
+galleryList.insertAdjacentHTML("beforeend", galleryMarkup);
