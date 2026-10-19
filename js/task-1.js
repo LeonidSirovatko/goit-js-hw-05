@@ -1,18 +1,21 @@
-// Задача 1. Імена користувачів
-const getUserNames = (users) => {
-  return users.map(user => user.name);
-};
+// Знаходимо основний список категорій
+const categoriesList = document.querySelector('#categories');
 
-// Код для перевірки ментором
-console.log(
-  getUserNames([
-    { name: "Moore Hensley", email: "moorehensley@indexia.com", balance: 2811 },
-    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", balance: 3821 },
-    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", balance: 3793 },
-    { name: "Elma Head", email: "elmahead@omatom.com", balance: 2278 },
-    { name: "Carey Barr", email: "careybarr@nurali.com", balance: 3951 },
-    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", balance: 1498 },
-    { name: "Sheree Anthony", email: "shereeanthony@kog.com", balance: 2764 }
-  ])
-); 
-// Очікуваний результат: ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+// Знаходимо всі елементи лістів з класом item
+const categoryItems = categoriesList.querySelectorAll('.item');
+
+// Виводимо загальну кількість категорій
+console.log(`Number of categories: ${categoryItems.length}`);
+
+// Перебираємо кожну категорію через forEach
+categoryItems.forEach(item => {
+  // Отримуємо текст заголовка h2
+  const categoryTitle = item.querySelector('h2').textContent;
+  
+  // Рахуємо кількість вкладених li
+  const elementsCount = item.querySelectorAll('ul li').length;
+  
+  // Виводимо інформацію в консоль
+  console.log(`Category: ${categoryTitle}`);
+  console.log(`Elements: ${elementsCount}`);
+});

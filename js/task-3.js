@@ -1,17 +1,10 @@
-// Задача 3. Сортування за кількістю друзів
-const sortByDescendingFriendCount = (users) => {
-  return users.toSorted((a, b) => b.friends.length - a.friends.length);
-};
+const nameInput = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-// Код для перевірки ментором
-console.log(
-  sortByDescendingFriendCount([
-    { name: "Moore Hensley", friends: ["Sharron Pace"], gender: "male" },
-    { name: "Sharlene Bush", friends: ["Briana Decker", "Sharron Pace"], gender: "female" },
-    { name: "Ross Vazquez", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], gender: "male" },
-    { name: "Elma Head", friends: ["Goldie Gentry", "Aisha Tran"], gender: "female" },
-    { name: "Carey Barr", friends: ["Jordan Sampson", "Eddie Strong"], gender: "male" },
-    { name: "Blackburn Dotson", friends: ["Jacklyn Lucas", "Linda Chapman"], gender: "male" },
-    { name: "Sheree Anthony", friends: ["Goldie Gentry", "Briana Decker"], gender: "female" }
-  ])
-);
+nameInput.addEventListener('input', (event) => {
+  // Очищаємо значення інпуту від пробілів по краях
+  const trimmedValue = event.currentTarget.value.trim();
+  
+  // Якщо інпут порожній або містить лише пробіли — повертаємо Anonymous
+  nameOutput.textContent = trimmedValue === '' ? 'Anonymous' : trimmedValue;
+});
